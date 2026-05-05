@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cc9bcd89e104547bf996814345e9fb, type: 3}
+  m_Name: IronArmor
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  resultItem: {fileID: 11400000, guid: 0911b5c682550f74b9083a1e62d7387b, type: 2}
+  resultAmount: 1
+  crafterType: 1
+  ingredients:
+  - item: {fileID: 11400000, guid: 5598661ada730e24bae9b63040ca20de, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: f53b00a2cb0bc4f439381182feb55f31, type: 2}
+    amount: 8

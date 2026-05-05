@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480c25e372ae1254da114fe5f9107778, type: 3}
+  m_Name: SoundLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::SoundLibrary
+  craftingSounds:
+  - name: CraftStart
+    clip: {fileID: 8300000, guid: 9139f7e4651caa340be2d436b9462eba, type: 3}
+    volume: 0.8
+  - name: CraftSuccess
+    clip: {fileID: 8300000, guid: 85952c5c5dc17a94982094c6db73633a, type: 3}
+    volume: 1
+  - name: CraftFail
+    clip: {fileID: 8300000, guid: b406a02cc3300d8418f5d274621acdbb, type: 3}
+    volume: 0.7
+  uiSounds:
+  - name: UIOpen
+    clip: {fileID: 8300000, guid: 04a5442e4287746419960721f86803ac, type: 3}
+    volume: 0.5
+  - name: UIClose
+    clip: {fileID: 8300000, guid: 04a5442e4287746419960721f86803ac, type: 3}
+    volume: 0.5
+  inventorySounds: []
+  gameplaySounds: []

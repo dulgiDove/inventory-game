@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cc9bcd89e104547bf996814345e9fb, type: 3}
+  m_Name: MediumManaPotion
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  resultItem: {fileID: 11400000, guid: 412bb1f081d7b8848a01367e875d892d, type: 2}
+  resultAmount: 1
+  crafterType: 0
+  ingredients:
+  - item: {fileID: 11400000, guid: 9a101703a29905f40acd468479836dd3, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 138eca8275b84d74e857f3cf8934a51c, type: 2}
+    amount: 3
+  - item: {fileID: 11400000, guid: cad9c853878e79c46bc4aed71dbba4b1, type: 2}
+    amount: 1
