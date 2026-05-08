@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +10,8 @@ public class Inventory : MonoBehaviour
 
     private List<InventorySlot> slots;
 
-    public event System.Action OnInventoryChanged;
+    public event Action OnInventoryChanged;
+    public event Action<ItemCategory> OnItemUsed;
 
     void Awake()
     {
@@ -35,7 +37,7 @@ public class Inventory : MonoBehaviour
         if (slots == null)
         {
             Debug.LogError("인벤토리가 초기화되지 않았습니다!");
-            InitializeSlots();  // 강제 초기화
+            InitializeSlots();
         }
 
         if (item == null)
@@ -117,6 +119,8 @@ public class Inventory : MonoBehaviour
             return;
 
         var item = slot.item;
+
+        OnItemUsed?.Invoke(item.category);
 
         if (item.category == ItemCategory.Consumable)
         {

@@ -64,6 +64,7 @@ public class SoundManager : MonoBehaviour
         if (inventory != null)
         {
             inventory.OnInventoryChanged += OnInventoryChanged;
+            inventory.OnItemUsed += OnItemUsed;
         }
     }
 
@@ -80,6 +81,7 @@ public class SoundManager : MonoBehaviour
         if (inventory != null)
         {
             inventory.OnInventoryChanged -= OnInventoryChanged;
+            inventory.OnItemUsed -= OnItemUsed;
         }
     }
 
@@ -129,6 +131,41 @@ public class SoundManager : MonoBehaviour
 
     void OnInventoryChanged()
     {
+    }
+
+    void OnItemUsed(ItemCategory category)
+    {
+        string soundName = GetItemUseSoundName(category);
+        PlaySFX(soundName);
+        Debug.Log($"{category} 아이템 사용 사운드: {soundName}");
+    }
+
+    string GetItemUseSoundName(ItemCategory category)
+    {
+        switch (category)
+        {
+            case ItemCategory.Consumable:
+                return "UsePotion";
+
+            case ItemCategory.Weapon:
+            case ItemCategory.Armor:
+            case ItemCategory.Accessory:
+                return "EquipItem";
+
+            case ItemCategory.Material:
+                return "UseItem";
+
+            case ItemCategory.QuestItem:
+            case ItemCategory.KeyItem:
+                return "UseSpecial";
+
+            case ItemCategory.Currency:
+                return "UseCoin";
+
+            case ItemCategory.Misc:
+            default:
+                return "UseItem";
+        }
     }
 
     void InitializeSFXPool()

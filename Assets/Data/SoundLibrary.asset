@@ -29,5 +29,8 @@ MonoBehaviour:
   - name: UIClose
     clip: {fileID: 8300000, guid: 04a5442e4287746419960721f86803ac, type: 3}
     volume: 0.5
-  inventorySounds: []
+  inventorySounds:
+  - name: UsePotion
+    clip: {fileID: 8300000, guid: 7adde4b7428e24f44845d5c16fee48d9, type: 3}
+    volume: 0.5
   gameplaySounds: []

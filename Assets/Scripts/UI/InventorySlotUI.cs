@@ -1,12 +1,10 @@
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class InventorySlotUI : MonoBehaviour,
-    IPointerClickHandler,
-    IPointerEnterHandler,
-    IPointerExitHandler
+public class InventorySlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image iconImage;
     [SerializeField] private TextMeshProUGUI countText;
@@ -14,9 +12,9 @@ public class InventorySlotUI : MonoBehaviour,
 
     private InventorySlot slot;
 
-    public event System.Action OnSlotClicked;
-    public event System.Action<InventorySlot> OnSlotHoverEnter;
-    public event System.Action OnSlotHoverExit;
+    public event Action OnSlotClicked;
+    public event Action<InventorySlot> OnSlotHoverEnter;
+    public event Action OnSlotHoverExit;
 
     public void SetSlot(InventorySlot inventorySlot)
     {

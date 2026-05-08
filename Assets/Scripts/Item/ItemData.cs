@@ -41,7 +41,7 @@ public class ItemData : ScriptableObject
         return components.OfType<T>().ToArray();
     }
 
-    // 어느 탭에 표시될지
+    // 인벤토리 어느 탭에 표시될지 선택
     public DisplayTab GetDisplayTab()
     {
         switch (category)
@@ -67,7 +67,7 @@ public class ItemData : ScriptableObject
         }
     }
 
-    // 착용 가능 여부
+    // 착용 가능한지
     public bool CanEquip(GameObject target)
     {
         var requirements = GetComponents<RequirementComponent>();
@@ -84,7 +84,7 @@ public class ItemData : ScriptableObject
         return true;
     }
 
-    // 장착
+    // 착용
     public void Equip(GameObject target)
     {
         var equipment = GetComponent<EquipmentComponent>();
@@ -94,7 +94,7 @@ public class ItemData : ScriptableObject
         }
     }
 
-    // 해제
+    // 착용 해제
     public void Unequip(GameObject target)
     {
         var equipment = GetComponent<EquipmentComponent>();

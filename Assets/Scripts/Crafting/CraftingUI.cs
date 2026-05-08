@@ -53,6 +53,13 @@ public class CraftingUI : MonoBehaviour
 
     public void DisplayRecipes(RecipeData[] recipes)
     {
+        selectedRecipe = null;
+
+        if (recipeDetailPanel != null)
+        {
+            recipeDetailPanel.SetActive(false);
+        }
+
         foreach (var slot in recipeSlots)
         {
             Destroy(slot.gameObject);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Linq;
 
 public class CraftingSystem : MonoBehaviour
@@ -14,10 +15,10 @@ public class CraftingSystem : MonoBehaviour
 
     public bool IsOpen { get; private set; }
 
-    public event System.Action<RecipeData> OnCraftingStarted;
-    public event System.Action<RecipeData, bool> OnCraftingCompleted;
-    public event System.Action<CrafterType> OnCraftingUIOpened;
-    public event System.Action OnCraftingUIClosed;
+    public event Action<RecipeData> OnCraftingStarted;
+    public event Action<RecipeData, bool> OnCraftingCompleted;
+    public event Action<CrafterType> OnCraftingUIOpened;
+    public event Action OnCraftingUIClosed;
 
     void Start()
     {
