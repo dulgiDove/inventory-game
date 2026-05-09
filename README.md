@@ -50,7 +50,7 @@ ItemComponent (추상 기반)
     
     └── ArmorComponent   - 방어력, 최대 체력
     
-   
+```
 //아이템 사용 시 - 부착된 모든 효과 컴포넌트를 순회하여 실행
 public void Use(GameObject target)
 {
@@ -60,6 +60,7 @@ public void Use(GameObject target)
         effect.Apply(target);
     }
 }
+```
 
 ### 2. 옵저버 패턴 (Observer Pattern)
 각 시스템이 서로를 직접 참조하지 않고 이벤트를 통해 통신합니다.
