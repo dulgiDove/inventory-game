@@ -53,6 +53,7 @@ public void Use(GameObject target)
 각 시스템이 서로를 직접 참조하지 않고 이벤트를 통해 통신합니다.
 예시로, SoundManager는 Inventory, CraftingSystem을 구독하여 코드 변경 없이 사운드를 재생합니다.
 
+```
 // Inventory.cs - 이벤트 정의
 public event Action OnInventoryChanged;
 public event Action<ItemCategory> OnItemUsed;
@@ -70,6 +71,7 @@ void SubscribeToEvents()
     craftingSystem.OnCraftingCompleted += OnCraftingCompleted;
     inventory.OnItemUsed += OnItemUsed;
 }
+```
 
 UI 레이어에서도 같은 패턴을 적용했습니다.
 InventorySlotUI는 마우스 이벤트만 감지하고, 실제 로직 처리는 InventoryUI가 담당합니다.
