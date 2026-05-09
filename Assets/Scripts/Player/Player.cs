@@ -71,11 +71,6 @@ public class Player : MonoBehaviour
 
         Vector2 movement = new Vector2(horizontal, vertical);
         Move(movement);
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            ToggleInventory();
-        }
     }
 
     void Move(Vector2 direction)
@@ -99,27 +94,6 @@ public class Player : MonoBehaviour
             {
                 animator.SetFloat("Speed", 0);
             }
-        }
-    }
-
-    void ToggleInventory()
-    {
-        if (inventoryPanel == null)
-        {
-            Debug.LogError("InventoryPanel이 연결되지 않았습니다!");
-            return;
-        }
-
-        bool isActive = !inventoryPanel.activeSelf;
-        inventoryPanel.SetActive(isActive);
-
-        if (isActive)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
         }
     }
 

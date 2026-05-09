@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public enum CrafterType
 {
@@ -34,14 +35,10 @@ public class RecipeData : ScriptableObject
         if (ingredients == null || ingredients.Length == 0)
             return "재료 없음";
 
-        string result = "";
-        for (int i = 0; i < ingredients.Length; i++)
-        {
-            if (ingredients[i].item == null) continue;
-            result += $"{ingredients[i].item.itemName} x{ingredients[i].amount}";
-            if (i < ingredients.Length - 1)
-                result += "\n";
-        }
-        return result;
+        var lines = System.Linq.Enumerable
+            .Where(ingredients, i => i.item != null)
+            .Select(i => $"{i.item.itemName} x{i.amount}");
+
+        return string.Join("\n", lines);
     }
 }

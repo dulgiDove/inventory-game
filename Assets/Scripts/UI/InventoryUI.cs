@@ -27,8 +27,8 @@ public class InventoryUI : MonoBehaviour
 
     void Awake()
     {
-        
-        CreateSlotUIs(24);
+
+        CreateSlotUIs(inventory.MaxSlots);
     }
 
     void Start()
@@ -43,7 +43,7 @@ public class InventoryUI : MonoBehaviour
             inventory.OnInventoryChanged += RefreshUI;
         }
 
-        inventoryPanel.SetActive(true);
+        inventoryPanel.SetActive(false);
 
         if (tooltip != null)
         {

@@ -73,7 +73,7 @@ public class CraftingUI : MonoBehaviour
 
             if (slotUI != null)
             {
-                slotUI.SetRecipe(recipe, inventory);
+                slotUI.SetRecipe(recipe, inventory, craftingSystem);
                 slotUI.OnRecipeSelected += SelectRecipe;
                 recipeSlots.Add(slotUI);
             }

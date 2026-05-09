@@ -11,6 +11,7 @@ public class RecipeSlotUI : MonoBehaviour
     [SerializeField] private Button selectButton;
     [SerializeField] private GameObject cantCraftOverlay;
 
+    private CraftingSystem craftingSystem;
     private RecipeData recipe;
 
     public event System.Action<RecipeData> OnRecipeSelected;
@@ -23,65 +24,31 @@ public class RecipeSlotUI : MonoBehaviour
         }
     }
 
-    public void SetRecipe(RecipeData recipeData, Inventory inventory)
+    public void SetRecipe(RecipeData recipeData, Inventory inventory, CraftingSystem craftingSystem)
     {
+        this.craftingSystem = craftingSystem;
         recipe = recipeData;
 
         if (resultIcon != null && recipe.resultItem != null)
-        {
             resultIcon.sprite = recipe.resultItem.icon;
-        }
 
         if (recipeNameText != null)
-        {
             recipeNameText.text = recipe.RecipeName;
-        }
 
         if (ingredientsText != null)
-        {
             ingredientsText.text = recipe.GetRecipeDescription();
-        }
 
         Refresh(inventory);
     }
 
     public void Refresh(Inventory inventory)
     {
-        bool canCraft = CanCraft(inventory);
+        bool canCraft = craftingSystem.CanCraft(recipe);
 
         if (cantCraftOverlay != null)
-        {
             cantCraftOverlay.SetActive(!canCraft);
-        }
 
         if (resultIcon != null)
-        {
             resultIcon.color = canCraft ? Color.white : new Color(1, 1, 1, 0.5f);
-        }
-    }
-
-    bool CanCraft(Inventory inventory)
-    {
-        if (recipe == null || recipe.ingredients == null)
-            return false;
-
-        foreach (var ingredient in recipe.ingredients)
-        {
-            var slots = inventory.GetAllItems();
-            int totalCount = 0;
-
-            foreach (var slot in slots)
-            {
-                if (!slot.IsEmpty && slot.item == ingredient.item)
-                {
-                    totalCount += slot.count;
-                }
-            }
-
-            if (totalCount < ingredient.amount)
-                return false;
-        }
-
-        return true;
     }
 }

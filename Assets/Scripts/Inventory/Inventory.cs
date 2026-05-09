@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour
     public event Action OnInventoryChanged;
     public event Action<ItemCategory> OnItemUsed;
 
+    public int MaxSlots => maxSlots;
+
     void Awake()
     {
         InitializeSlots();

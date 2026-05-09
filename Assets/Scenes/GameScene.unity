@@ -2740,6 +2740,7 @@ GameObject:
   - component: {fileID: 918869692}
   - component: {fileID: 918869691}
   - component: {fileID: 918869690}
+  - component: {fileID: 918869694}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2833,6 +2834,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &918869694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918869689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4896a16dc8564e8449596c7a2d329496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
+  inventory: {fileID: 1367826529}
+  inventoryPanel: {fileID: 1627101646}
+  tabConsumables: {fileID: 1108657306}
+  tabEquipment: {fileID: 469626676}
+  tabMaterials: {fileID: 1676990433}
+  tabSpecial: {fileID: 2015260406}
+  slotContainer: {fileID: 1932930126}
+  slotPrefab: {fileID: 496165273734157496, guid: 42ca34bece76d35408317ccc1fb5d709, type: 3}
+  tooltip: {fileID: 1212917695}
 --- !u!1 &928378539
 GameObject:
   m_ObjectHideFlags: 0
@@ -5196,7 +5218,6 @@ GameObject:
   - component: {fileID: 1627101647}
   - component: {fileID: 1627101649}
   - component: {fileID: 1627101648}
-  - component: {fileID: 1627101650}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -5263,27 +5284,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627101646}
   m_CullTransparentMesh: 1
---- !u!114 &1627101650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627101646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4896a16dc8564e8449596c7a2d329496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
-  inventory: {fileID: 1367826529}
-  inventoryPanel: {fileID: 1627101646}
-  tabConsumables: {fileID: 1108657306}
-  tabEquipment: {fileID: 469626676}
-  tabMaterials: {fileID: 1676990433}
-  tabSpecial: {fileID: 2015260406}
-  slotContainer: {fileID: 1932930126}
-  slotPrefab: {fileID: 496165273734157496, guid: 42ca34bece76d35408317ccc1fb5d709, type: 3}
-  tooltip: {fileID: 1212917695}
 --- !u!1 &1676990431
 GameObject:
   m_ObjectHideFlags: 0
