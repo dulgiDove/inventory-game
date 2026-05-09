@@ -3,13 +3,16 @@ Unity 6 기반 2D RPG 인벤토리 시스템 구현 프로젝트
 디자인 패턴 적용에 집중하여 확장 가능한 아이템/제작 및 인벤토리 시스템을 구현했습니다.
 
 스크린샷(GIF)
-<img width="1112" height="840" alt="play1" src="https://github.com/user-attachments/assets/1f1c722d-3812-4896-a380-159f82c5a103" />
 
 player가 움직이고, Crafter와 상호작용하고, 아이템을 제작하고, 인벤토리에서 툴팁 확인하는 게임플레이 GIF입니다.
+<img width="1112" height="840" alt="play1" src="https://github.com/user-attachments/assets/1f1c722d-3812-4896-a380-159f82c5a103" />
 
-<img width="1112" height="840" alt="play2" src="https://github.com/user-attachments/assets/c00ed6e7-c590-45a3-8e27-71ebb8e3e4d8" />
+
 
 아이템들이 인벤토리의 TabButtons에 맞게 표시되며, Consumable 아이템을 사용하면 화면 상단의 PlayerStatsPanel에 변화가 생깁니다.
+<img width="1112" height="840" alt="play2" src="https://github.com/user-attachments/assets/c00ed6e7-c590-45a3-8e27-71ebb8e3e4d8" />
+
+
 
 핵심 구현 목표
 1. 컴포넌트 패턴으로 아이템 기능을 조합 가능하게 설계
