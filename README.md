@@ -26,6 +26,8 @@ player가 움직이고, Crafter와 상호작용하고, 아이템을 제작하고
 ### 1. 컴포넌트 패턴 (Component Pattern)
 아이템의 효과, 착용 조건, 장비 스탯을 독립적인 ScriptableObject로 분리하여 조합하는 방식으로 설계했습니다.
 새로운 아이템 타입을 추가할 때 기존 코드를 수정하지 않고 컴포넌트만 추가 및 조합하면 됩니다.
+
+```
 ItemComponent (추상 기반)
 
 ├── ItemEffect          - 아이템 사용 효과
@@ -49,7 +51,8 @@ ItemComponent (추상 기반)
     ├── WeaponComponent  - 공격력, 공격속도, 사거리
     
     └── ArmorComponent   - 방어력, 최대 체력
-    
+```
+
 ```
 //아이템 사용 시 - 부착된 모든 효과 컴포넌트를 순회하여 실행
 public void Use(GameObject target)
