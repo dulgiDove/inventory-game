@@ -3,7 +3,7 @@
 Unity 6 기반 2D RPG 인벤토리 시스템 구현 프로젝트
 디자인 패턴 적용에 집중하여 확장 가능한 아이템/제작 및 인벤토리 시스템을 구현했습니다.
 
-##스크린샷(GIF)
+## 스크린샷(GIF)
 
 player가 움직이고, Crafter와 상호작용하고, 아이템을 제작하고, 인벤토리에서 툴팁 확인하는 게임플레이 GIF입니다.
 <img width="1112" height="840" alt="play1" src="https://github.com/user-attachments/assets/1f1c722d-3812-4896-a380-159f82c5a103" />
@@ -15,15 +15,15 @@ player가 움직이고, Crafter와 상호작용하고, 아이템을 제작하고
 
 
 
-##핵심 구현 목표
+## 핵심 구현 목표
 1. 컴포넌트 패턴으로 아이템 기능을 조합 가능하게 설계
 2. 옵저버 패턴으로 시스템 간 결합도 최소화
 3. 오브젝트 풀로 SFX 성능 최적화
 4. 인벤토리, 툴팁, 제작, 플레이어 HP/MP UI 구현
 5. NPC 근접 시 상호작용 프롬프트 표시 및 E키를 상호작용 구현
 
-##기술 구현
-###1. 컴포넌트 패턴 (Component Pattern)
+## 기술 구현
+### 1. 컴포넌트 패턴 (Component Pattern)
 아이템의 효과, 착용 조건, 장비 스탯을 독립적인 ScriptableObject로 분리하여 조합하는 방식으로 설계했습니다.
 새로운 아이템 타입을 추가할 때 기존 코드를 수정하지 않고 컴포넌트만 추가 및 조합하면 됩니다.
 ItemComponent (추상 기반)
@@ -49,7 +49,7 @@ public void Use(GameObject target)
     }
 }
 
-###2. 옵저버 패턴 (Observer Pattern)
+### 2. 옵저버 패턴 (Observer Pattern)
 각 시스템이 서로를 직접 참조하지 않고 이벤트를 통해 통신합니다.
 예시로, SoundManager는 Inventory, CraftingSystem을 구독하여 코드 변경 없이 사운드를 재생합니다.
 
@@ -82,7 +82,7 @@ public void OnPointerClick(PointerEventData eventData)
 // InventoryUI.cs - 로직 처리 담당
 slotUI.OnSlotClicked += () => OnSlotClicked(index);
 
-###3. 오브젝트 풀 (Object Pool)
+### 3. 오브젝트 풀 (Object Pool)
 SFX 재생마다 AudioSource를 생성/삭제하면 GC 부하가 발생합니다.
 미리 생성해둔 풀에서 꺼내 쓰고 반납하는 방식으로 이를 해결했습니다.
 // 재생 요청 시 풀에서 꺼내기
@@ -113,11 +113,11 @@ IEnumerator ReturnToPoolWhenFinished(AudioSource source, float delay)
 동시 재생 수에 따라 풀 크기가 자동으로 조절됩니다.
 10번 재생해도 겹치지 않는다면 AudioSource 1개만 재사용합니다.
 
-###4. NPC 상호작용 시스템
+### 4. NPC 상호작용 시스템
 플레이어가 NPC에 근접하면 상호작용 프롬프트가 자동으로 표시되고, E 키를 눌러 상호작용할 수 있습니다.
 상호작용 가능한 오브젝트는 IInteractable 인터페이스를 구현하는 것만으로 시스템에 편입됩니다.
 
-###5. UI 구현
+### 5. UI 구현
 게임의 상태를 표현하는 4가지 UI 패널을 구현했습니다.
 
 인벤토리 패널
