@@ -75,6 +75,7 @@ void SubscribeToEvents()
 
 UI 레이어에서도 같은 패턴을 적용했습니다.
 InventorySlotUI는 마우스 이벤트만 감지하고, 실제 로직 처리는 InventoryUI가 담당합니다.
+```
 // InventorySlotUI.cs - 감지만 담당
 public void OnPointerClick(PointerEventData eventData)
 {
@@ -83,10 +84,12 @@ public void OnPointerClick(PointerEventData eventData)
 
 // InventoryUI.cs - 로직 처리 담당
 slotUI.OnSlotClicked += () => OnSlotClicked(index);
+```
 
 ### 3. 오브젝트 풀 (Object Pool)
 SFX 재생마다 AudioSource를 생성/삭제하면 GC 부하가 발생합니다.
 미리 생성해둔 풀에서 꺼내 쓰고 반납하는 방식으로 이를 해결했습니다.
+```
 // 재생 요청 시 풀에서 꺼내기
 AudioSource GetAvailableSFXSource()
 {
@@ -111,6 +114,7 @@ IEnumerator ReturnToPoolWhenFinished(AudioSource source, float delay)
     source.gameObject.SetActive(false);
     sfxPool.Enqueue(source);
 }
+```
 
 동시 재생 수에 따라 풀 크기가 자동으로 조절됩니다.
 10번 재생해도 겹치지 않는다면 AudioSource 1개만 재사용합니다.
